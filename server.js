@@ -18,34 +18,34 @@ app.get('/test', function (req, res) {
 
 app.get('/deployApp', function (req, res) {
 
-    var yourscript = exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-app.sh',
+    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-app.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
             console.log(`${stderr}`);
-            res.end('Executed');
+            res.json(true);
             if (error !== null) {
                 console.log(`exec error: ${error}`);
+                res.json(false);
             }
         });
 
-    yourscript();
 })
 
 app.get('/deployService', function (req, res) {
 
-    var yourscript = exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-service.sh',
+    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-service.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
             console.log(`${stderr}`);
-            res.end('Executed');
+            res.json(true);
             if (error !== null) {
                 console.log(`exec error: ${error}`);
+                res.json(false);
             }
         });
 
-    yourscript();
 })
 
 
