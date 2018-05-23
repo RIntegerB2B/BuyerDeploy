@@ -16,7 +16,7 @@ app.get('/test', function (req, res) {
     res.end("Success!");
 })
 
-app.get('/deployApp', function (req, res) {
+app.get('/buyerApp', function (req, res) {
 
     exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-app.sh',
         (error, stdout, stderr) => {
@@ -32,7 +32,7 @@ app.get('/deployApp', function (req, res) {
 
 })
 
-app.get('/deployService', function (req, res) {
+app.get('/buyerService', function (req, res) {
 
     exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-service.sh',
         (error, stdout, stderr) => {
@@ -48,7 +48,37 @@ app.get('/deployService', function (req, res) {
 
 })
 
+app.get('/sellerApp', function (req, res) {
 
+    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-seller-app.sh',
+        (error, stdout, stderr) => {
+            console.log(`${stdout}`);
+
+            console.log(`${stderr}`);
+            res.json(true);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+                res.json(false);
+            }
+        });
+
+})
+
+app.get('/sellerService', function (req, res) {
+
+    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-seller-service.sh',
+        (error, stdout, stderr) => {
+            console.log(`${stdout}`);
+
+            console.log(`${stderr}`);
+            res.json(true);
+            if (error !== null) {
+                console.log(`exec error: ${error}`);
+                res.json(false);
+            }
+        });
+
+})
 
 console.log('Buyer App started on: ' + port);
 
