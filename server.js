@@ -18,7 +18,7 @@ app.get('/test', function (req, res) {
 
 app.get('/buyerApp', function (req, res) {
 
-    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-app.sh',
+    exec('sh /home/ubuntu/myfolder/batchfile/deploy-buyer-app.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -34,7 +34,7 @@ app.get('/buyerApp', function (req, res) {
 
 app.get('/buyerService', function (req, res) {
 
-    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-buyer-service.sh',
+    exec('sh /home/ubuntu/myfolder/batchfile/deploy-buyer-service.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -50,7 +50,7 @@ app.get('/buyerService', function (req, res) {
 
 app.get('/sellerApp', function (req, res) {
 
-    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-seller-app.sh',
+    exec('sh /home/ubuntu/myfolder/batchfile/deploy-seller-app.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
@@ -66,7 +66,7 @@ app.get('/sellerApp', function (req, res) {
 
 app.get('/sellerService', function (req, res) {
 
-    exec('sh /home/ubuntu/myfolder/batchfiles/deploy-seller-service.sh',
+    exec('sh /home/ubuntu/myfolder/batchfile/deploy-seller-service.sh',
         (error, stdout, stderr) => {
             console.log(`${stdout}`);
 
