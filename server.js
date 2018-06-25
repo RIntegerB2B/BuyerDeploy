@@ -9,7 +9,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 app.listen(port);
-
+app.timeout = 300000;  
 
 
 app.get('/test', function (req, res) {
